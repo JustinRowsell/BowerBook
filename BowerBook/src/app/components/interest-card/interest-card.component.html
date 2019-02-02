@@ -1,7 +1,16 @@
-<mat-card>
-  <mat-card-header>Interest Name</mat-card-header>
-  <mat-card-content>Some details like motivation or resources</mat-card-content>
-  <mat-card-footer>
-    <mat-icon>star</mat-icon>
-  </mat-card-footer>
+<mat-card class="grid-card" color="primary">
+  <mat-card-header color="accent">
+    <mat-card-title>Interest Name</mat-card-title>
+    <mat-card-subtitle>Category</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>List item</mat-list-item>
+      <mat-list-item>List item</mat-list-item>
+      <mat-list-item>List item</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="accent"><mat-icon>open_in_new</mat-icon></button>
+  </mat-card-actions>
 </mat-card>
