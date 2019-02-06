@@ -27,4 +27,12 @@ export class InterestService {
     });
     return of(interests);
   }
+
+  getInterestById(id: number): Interest {
+    return {
+      interestName: 'Test Interest Three',
+      interestId: 3,
+      category: 'Programming'
+    };
+  }
 }
