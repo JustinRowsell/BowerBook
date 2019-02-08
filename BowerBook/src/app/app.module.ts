@@ -11,6 +11,7 @@ import { MatToolbarModule, MatSidenavModule, MatListModule, MatIconModule,
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { InterestCardComponent } from './components/interest-card/interest-card.component';
 import { InterestDetailComponent } from './components/interest-detail/interest-detail.component';
+import { InterestListItemComponent } from './components/interest-list-item/interest-list-item.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { InterestDetailComponent } from './components/interest-detail/interest-d
     DashboardComponent,
     NotFoundComponent,
     InterestCardComponent,
-    InterestDetailComponent
+    InterestDetailComponent,
+    InterestListItemComponent
   ],
   imports: [
     BrowserModule,
