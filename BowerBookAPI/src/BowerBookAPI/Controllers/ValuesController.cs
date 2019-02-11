@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace BowerBookAPI.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class InterestsController : Controller
     {
-        // GET api/values
+        // GET api/Interests
         [HttpGet]
         public IEnumerable<string> Get()
         {
