@@ -11,7 +11,7 @@ namespace BowerBookAPI.Controllers
     {
         // GET api/Interests
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> GetAll()
         {
             return new string[] { "value1", "value2" };
         }
