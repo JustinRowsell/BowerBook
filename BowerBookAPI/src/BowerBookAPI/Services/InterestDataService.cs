@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using Amazon.DynamoDBv2;
+using BowerBookAPI.Interfaces.Services;
+using BowerBookAPI.Models;
 using BowerBookAPI.Utils;
 
 namespace BowerBookAPI.Services {
@@ -12,7 +16,7 @@ namespace BowerBookAPI.Services {
       }
     }
 
-    public object GetAllInterests() {
+    public List<InterestModel> GetAllInterests() {
       var request = DynamoRequestBuilder.QueryTable("Interests", "Id");
       var res = _client.Query(request);
       foreach (Dictionary<string, AttributeValue> item in res.Items)
@@ -20,6 +24,7 @@ namespace BowerBookAPI.Services {
         // Process the result.
         return item;
       }
+      return null;
     }
 
     public void GetInterestsForUser(int userId) {
