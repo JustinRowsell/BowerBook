@@ -1,4 +1,3 @@
-<div *ngFor="let i of interests">
-    <app-interest-list-item [interest]="i"></app-interest-list-item>
-    <mat-divider></mat-divider>
-</div>
+<mat-accordion>
+  <app-interest-expansion-panel *ngFor="let i of interests | async" [interest]="i" ></app-interest-expansion-panel>
+</mat-accordion>

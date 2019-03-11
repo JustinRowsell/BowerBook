@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { InterestService } from 'src/app/services/interest.service';
 import { Interest } from 'src/app/models/Interest';
 import { APP_CONFIG, IAppConfig } from 'src/app/app.config';
+import { map, find } from 'rxjs/operators';
 
 @Component({
   selector: 'app-interest-detail',
@@ -18,6 +19,9 @@ export class InterestDetailComponent implements OnInit {
 
   ngOnInit() {
     this.idParam = +this.activedRoute.params[this.config.idParam];
-    this.interest = this.service.getInterestById(this.idParam);
+    this.service.getInterests();
+    this.service.interests.pipe(
+      map(interests => interests.find(i => i.interestId === this.idParam))
+    );
   }
 }

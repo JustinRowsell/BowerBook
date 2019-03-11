@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, from, BehaviorSubject } from 'rxjs';
 import { Interest } from '../models/Interest';
 import { Tag } from '../models/Tag';
 import { Resource } from '../models/Resource';
@@ -9,9 +9,17 @@ import { Progress } from '../models/Progress';
   providedIn: 'root'
 })
 export class InterestService {
+  // tslint:disable-next-line:variable-name
+  private _interests = new BehaviorSubject(new Array<Interest>());
+  public readonly interests: Observable<Interest[]> = this._interests.asObservable();
 
   constructor() { }
-  getInterests(): Observable<Interest[]> {
+  getInterests(): void {
+    const interestArray = this.mockTestData();
+    this._interests.next(interestArray);
+  }
+
+  mockTestData(): Interest[] {
     const tagsL = new Array<Tag>();
     tagsL.push({
       tagId: 1,
@@ -81,17 +89,6 @@ export class InterestService {
       tags: tagsL,
       resources: resourcesL
     });
-    return of(interests);
-  }
-
-  getInterestById(id: number): Interest {
-    return {
-      interestName: 'Test Interest Three',
-      interestId: 3,
-      category: 'Programming',
-      description: 'This is a test interest',
-      tags: tagsL,
-      resources: resourcesL
-    };
+    return interests;
   }
 }

@@ -1,0 +1,18 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{interest.interestName}}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{interest.description}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-list>
+    <mat-list-item *ngFor="let r of interest.resources">
+      {{r.resourceName}}
+    </mat-list-item>
+  </mat-list>
+  <mat-action-row>
+    <button mat-flat-button color="accent" (click)="showDetail(interest)">Open</button>
+  </mat-action-row>
+</mat-expansion-panel>
