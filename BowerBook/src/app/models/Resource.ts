@@ -1,8 +1,8 @@
 import { Progress } from './Progress';
 
 export class Resource {
-  public resourceName: string;
   public resourceId: number;
+  public resourceName: string;
   public link: string;
   public progress: Progress;
 }
