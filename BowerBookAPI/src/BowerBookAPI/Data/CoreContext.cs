@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace BowerBookAPI
+namespace BowerBookAPI.Data
 {
     public partial class CoreContext : DbContext
     {

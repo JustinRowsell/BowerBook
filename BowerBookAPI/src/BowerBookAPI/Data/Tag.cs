@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BowerBookAPI
+namespace BowerBookAPI.Data
 {
     public partial class Tag
     {
