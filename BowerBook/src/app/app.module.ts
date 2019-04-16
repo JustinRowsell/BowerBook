@@ -14,6 +14,8 @@ import { InterestCardComponent } from './components/interest-card/interest-card.
 import { InterestDetailComponent } from './components/interest-detail/interest-detail.component';
 import { InterestListItemComponent } from './components/interest-list-item/interest-list-item.component';
 import { InterestExpansionPanelComponent } from './components/interest-expansion-panel/interest-expansion-panel.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { InterestExpansionPanelComponent } from './components/interest-expansion
     MatGridListModule,
     MatButtonModule,
     MatChipsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {
