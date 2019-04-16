@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "http": "http-server -p 8080 -c-1 dist/BowerBook",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
