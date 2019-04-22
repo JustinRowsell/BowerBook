@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using System.Configuration;
 
 namespace BowerBookAPI.Data
 {
@@ -27,8 +28,7 @@ namespace BowerBookAPI.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseNpgsql("Host=bowerbook.c6unhdl9gji6.us-west-2.rds.amazonaws.com;Database=Core;Username=bower;Password=B0w3r2019!");
+                optionsBuilder.UseNpgsql(ConfigurationManager.ConnectionStrings["CoreDatabase"].ConnectionString);
             }
         }
 

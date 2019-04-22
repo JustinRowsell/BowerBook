@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-using Xunit;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.TestUtilities;
 using Amazon.Lambda.APIGatewayEvents;
@@ -18,10 +17,11 @@ using Amazon.S3.Util;
 using Amazon.S3.Model;
 
 using BowerBookAPI;
-
+using NUnit.Framework;
 
 namespace BowerBookAPI.Tests
 {
+    [TestFixture]
     public class S3ProxyControllerTests : IDisposable
     {
         string BucketName { get; set; }
@@ -46,7 +46,7 @@ namespace BowerBookAPI.Tests
             this.S3Client.PutBucketAsync(this.BucketName).Wait();
         }
 
-        [Fact]
+        [Test]
         public async Task TestSuccessWorkFlow()
         {
             var lambdaFunction = new LambdaEntryPoint();
@@ -58,7 +58,7 @@ namespace BowerBookAPI.Tests
             var context = new TestLambdaContext();
             var response = await lambdaFunction.FunctionHandlerAsync(request, context);
 
-            Assert.Equal(200, response.StatusCode);
+            Assert.AreEqual(200, response.StatusCode);
 
             // Get with no object key in the resource path does an object list call
             requestStr = File.ReadAllText("./SampleRequests/S3ProxyController-Get.json");
@@ -66,9 +66,9 @@ namespace BowerBookAPI.Tests
             context = new TestLambdaContext();
             response = await lambdaFunction.FunctionHandlerAsync(request, context);
 
-            Assert.Equal(200, response.StatusCode);
-            Assert.Equal("text/json", response.MultiValueHeaders["Content-Type"][0]);
-			Assert.Contains("foo.txt", response.Body);
+            Assert.AreEqual(200, response.StatusCode);
+            Assert.AreEqual("text/json", response.MultiValueHeaders["Content-Type"][0]);
+			Assert.IsTrue(response.Body.Contains("foo.txt"));
 
             // Return the content of the new s3 object foo.txt
             requestStr = File.ReadAllText("./SampleRequests/S3ProxyController-GetByKey.json");
@@ -76,9 +76,9 @@ namespace BowerBookAPI.Tests
             context = new TestLambdaContext();
             response = await lambdaFunction.FunctionHandlerAsync(request, context);
 
-            Assert.Equal(200, response.StatusCode);
-            Assert.Equal("text/plain", response.MultiValueHeaders["Content-Type"][0]);
-            Assert.Equal("Hello World", response.Body);
+            Assert.AreEqual(200, response.StatusCode);
+            Assert.AreEqual("text/plain", response.MultiValueHeaders["Content-Type"][0]);
+            Assert.AreEqual("Hello World", response.Body);
 
             // Delete the object
             requestStr = File.ReadAllText("./SampleRequests/S3ProxyController-Delete.json");
@@ -86,7 +86,7 @@ namespace BowerBookAPI.Tests
             context = new TestLambdaContext();
             response = await lambdaFunction.FunctionHandlerAsync(request, context);
 
-            Assert.Equal(200, response.StatusCode);
+            Assert.AreEqual(200, response.StatusCode);
 
             // Make sure the object was deleted
             requestStr = File.ReadAllText("./SampleRequests/S3ProxyController-GetByKey.json");
@@ -94,7 +94,7 @@ namespace BowerBookAPI.Tests
             context = new TestLambdaContext();
             response = await lambdaFunction.FunctionHandlerAsync(request, context);
 
-            Assert.Equal(404, response.StatusCode);
+            Assert.AreEqual(404, response.StatusCode);
         }
 
 
