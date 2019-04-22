@@ -9,14 +9,14 @@ namespace BowerBookAPI.Controllers
     [Route("api/[controller]")]
     public class InterestsController : Controller
     {
-        // GET api/Interests
+        // GET api/interests
         [HttpGet]
         public IEnumerable<string> GetAll()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
+        // GET api/interests/5
         [HttpGet("{id}")]
         public string Get(int id)
         {

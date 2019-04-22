@@ -6,11 +6,13 @@ using BowerBookAPI.Models.Core;
 namespace BowerBookAPI.Services {
   public class InterestDataService: IInterestDataService
   {
-    public List<InterestModel> GetAllInterests() {
-      return null;
-    }
+        public List<InterestModel> GetAllInterests() {
+            return null;
+        }
 
-    public void GetInterestsForUser(int userId) {
-    }
+        public InterestModel GetInterest(int id)
+        {
+            throw new System.NotImplementedException();
+        }
   }
 }
