@@ -16,6 +16,7 @@ import { InterestListItemComponent } from './components/interest-list-item/inter
 import { InterestExpansionPanelComponent } from './components/interest-expansion-panel/interest-expansion-panel.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { environment } from '../environments/environment';
     MatButtonModule,
     MatChipsModule,
     MatExpansionModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
