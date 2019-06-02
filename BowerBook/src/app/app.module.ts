@@ -17,6 +17,10 @@ import { InterestExpansionPanelComponent } from './components/interest-expansion
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { UserLoginComponent } from './components/auth/user-login/user-login.component';
+import { AuthService } from './services/auth.service';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,10 @@ import { HttpClientModule } from '@angular/common/http';
     InterestCardComponent,
     InterestDetailComponent,
     InterestListItemComponent,
-    InterestExpansionPanelComponent
+    InterestExpansionPanelComponent,
+    UserLoginComponent,
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   imports: [
     BrowserModule,
@@ -47,7 +54,8 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     {
       provide: APP_CONFIG, useValue: AppConfig
-    }
+    },
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
