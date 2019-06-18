@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
-import { Interest } from 'src/app/models/Interest';
+import { Interest } from '../../models/Interest';
 import { Router } from '@angular/router';
-import { APP_CONFIG, IAppConfig } from 'src/app/app.config';
+import { APP_CONFIG, IAppConfig } from '../..//app.config';
 
 @Component({
   selector: 'app-interest-expansion-panel',

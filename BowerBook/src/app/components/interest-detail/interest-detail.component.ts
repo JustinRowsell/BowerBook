@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { InterestService } from 'src/app/services/interest.service';
-import { Interest } from 'src/app/models/Interest';
-import { APP_CONFIG, IAppConfig } from 'src/app/app.config';
+import { InterestService } from '../../services/interest.service';
+import { Interest } from '../../models/Interest';
+import { APP_CONFIG, IAppConfig } from '../../app.config';
 import { map, find } from 'rxjs/operators';
 
 @Component({

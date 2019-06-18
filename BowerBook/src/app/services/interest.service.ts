@@ -5,8 +5,8 @@ import { Tag } from '../models/Tag';
 import { Resource } from '../models/Resource';
 import { Progress } from '../models/Progress';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 import { map, catchError } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

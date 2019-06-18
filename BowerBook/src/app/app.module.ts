@@ -19,8 +19,6 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { UserLoginComponent } from './components/auth/user-login/user-login.component';
 import { AuthService } from './services/auth.service';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -31,9 +29,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     InterestDetailComponent,
     InterestListItemComponent,
     InterestExpansionPanelComponent,
-    UserLoginComponent,
-    AngularFireAuthModule,
-    AngularFirestoreModule
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
-import { InterestService } from 'src/app/services/interest.service';
-import { Interest } from 'src/app/models/Interest';
+import { InterestService } from '../../services/interest.service';
+import { Interest } from '../../models/Interest';
 import { Subscription, Observable } from 'rxjs';
 
 @Component({

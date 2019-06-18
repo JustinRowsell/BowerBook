@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,9 +15,9 @@ export class UserLoginComponent implements OnInit {
   }
 
   signInWithGoogle(): void {
-    this.authService.googleLogin()
-      .then(() => this.afterLogIn())
-      .catch((error) => this.showLoginError(error));
+    // this.authService.googleLogin()
+    //   .then(() => this.afterLogIn())
+    //   .catch((error) => this.showLoginError(error));
   }
 
   afterLogIn() {
