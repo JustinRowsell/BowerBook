@@ -8,7 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatToolbarModule, MatSidenavModule, MatListModule, MatIconModule,
   MatCardModule, MatGridListModule, MatButtonModule, MatChipsModule,
-  MatExpansionModule } from '@angular/material';
+  MatExpansionModule,
+  MatProgressSpinnerModule} from '@angular/material';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { InterestCardComponent } from './components/interest-card/interest-card.component';
 import { InterestDetailComponent } from './components/interest-detail/interest-detail.component';
@@ -45,7 +46,7 @@ import { AuthService } from './services/auth.service';
     MatChipsModule,
     MatExpansionModule,
     HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    MatProgressSpinnerModule
   ],
   providers: [
     {

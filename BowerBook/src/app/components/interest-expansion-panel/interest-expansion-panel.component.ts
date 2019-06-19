@@ -16,7 +16,7 @@ export class InterestExpansionPanelComponent implements OnInit {
   }
 
   showDetail(interest: Interest) {
-    this.router.navigateByUrl(`/interest?${this.config.idParam}=${interest.interestId}`);
+    this.router.navigateByUrl(`/interest?${this.config.idParam}=${interest._id}`);
   }
 
 }

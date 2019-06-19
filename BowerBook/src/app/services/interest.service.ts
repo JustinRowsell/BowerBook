@@ -18,10 +18,11 @@ export class InterestService {
 
   constructor(private http: HttpClient) { }
   getInterests(): void {
-    const interestArray = this.http.get(`${environment.coreApi}/api/interests`).pipe(
+    const interestArray = this.http.get<Array<Interest>>(`${environment.coreApi}/api/interests`).pipe(
       map(res => res as Interest[]),
       catchError(err => throwError(err))
     ).subscribe((interests) => {
+      console.log(interests);
       this._interests.next(interests);
     });
   }

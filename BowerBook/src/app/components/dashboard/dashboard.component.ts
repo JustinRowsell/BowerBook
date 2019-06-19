@@ -8,15 +8,26 @@ import { Subscription, Observable } from 'rxjs';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
-  interests: Observable<Interest[]>;
+export class DashboardComponent implements OnInit, OnDestroy {
+  interests: Interest[];
   getInterestSub: Subscription;
+  loaded = false;
+  interestsSub: Subscription;
 
   constructor(private service: InterestService) { }
 
   ngOnInit() {
-    this.interests = this.service.interests;
     this.service.getInterests();
+    this.interestsSub = this.service.interests.subscribe((interests) => {
+      this.interests = interests;
+      if (interests && interests.length > 0) {
+        this.loaded = true;
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.interestsSub.unsubscribe();
   }
 
   sortInterest(itemOne: Interest, itemTwo: Interest): number {

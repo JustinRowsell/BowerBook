@@ -12,17 +12,17 @@ import { map, find } from 'rxjs/operators';
   styleUrls: ['./interest-detail.component.scss']
 })
 export class InterestDetailComponent implements OnInit {
-  idParam: number;
+  idParam: string;
   interest = new Interest();
   constructor(@Inject(APP_CONFIG) private config: IAppConfig, private activedRoute: ActivatedRoute,
               private service: InterestService) { }
 
   ngOnInit() {
-    this.idParam = +this.activedRoute.snapshot.queryParamMap.get(this.config.idParam);
+    this.idParam = this.activedRoute.snapshot.queryParamMap.get(this.config.idParam);
     this.service.getInterests();
     this.service.interests.pipe(
       map(interests => {
-        let foundInterest = interests.find(i => i.interestId === this.idParam);
+        let foundInterest = interests.find(i => i._id === this.idParam);
         if (foundInterest === undefined || foundInterest === null) {
           foundInterest = this.getNotFoundObj();
         }
@@ -36,7 +36,7 @@ export class InterestDetailComponent implements OnInit {
   getNotFoundObj(): Interest {
     const interest = new Interest();
     interest.interestName = 'Not found';
-    interest.interestId = -1;
+    interest._id = 'NOT FOUND BITCH"';
     return interest;
   }
 

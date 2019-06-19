@@ -1,3 +1,7 @@
-<mat-accordion>
-  <app-interest-expansion-panel *ngFor="let i of interests | async" [interest]="i" ></app-interest-expansion-panel>
+<mat-accordion *ngIf="loaded">
+  <app-interest-expansion-panel *ngFor="let i of interests" [interest]="i" ></app-interest-expansion-panel>
 </mat-accordion>
+<mat-spinner *ngIf="!loaded"
+    class="spinna"
+    [color]="'primary'"
+    [mode]="'indeterminate'"></mat-spinner>
