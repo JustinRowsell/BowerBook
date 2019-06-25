@@ -2,10 +2,10 @@ import { Resource } from './Resource';
 import { Tag } from './Tag';
 
 export class Interest {
-    public _id: string;
+    public interestId: string;
     public interestName: string;
     public category: string;
     public description: string;
-    public resources: number[];
-    public tags: number[];
+    public resources: Resource[];
+    public tags: Tag[];
 }

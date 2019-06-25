@@ -6,10 +6,15 @@
     <mat-panel-description>
       {{interest.description}}
     </mat-panel-description>
+    <mat-chip-list class="chip-list">
+      <mat-chip color="primary" *ngFor="let tag of interest.tags">{{tag.tagName}}</mat-chip>
+    </mat-chip-list>
   </mat-expansion-panel-header>
   <mat-list>
     <mat-list-item *ngFor="let r of interest.resources">
-      {{r.resourceName}}
+      <mat-icon mat-list-icon>toys</mat-icon>
+      <h4 mat-line>{{r.resourceName}}</h4>
+      <a mat-line href="{{r.resourceLink}}">Link</a>
     </mat-list-item>
   </mat-list>
   <mat-action-row>

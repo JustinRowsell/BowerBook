@@ -22,7 +22,7 @@ export class InterestDetailComponent implements OnInit {
     this.service.getInterests();
     this.service.interests.pipe(
       map(interests => {
-        let foundInterest = interests.find(i => i._id === this.idParam);
+        let foundInterest = interests.find(i => i.interestId === this.idParam);
         if (foundInterest === undefined || foundInterest === null) {
           foundInterest = this.getNotFoundObj();
         }
@@ -35,8 +35,8 @@ export class InterestDetailComponent implements OnInit {
 
   getNotFoundObj(): Interest {
     const interest = new Interest();
-    interest.interestName = 'Not found';
-    interest._id = 'NOT FOUND BITCH"';
+    interest.interestName = 'What you looking for fam?';
+    interest.interestId = 'NOT FOUND BITCH"';
     return interest;
   }
 

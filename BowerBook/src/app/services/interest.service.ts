@@ -22,7 +22,6 @@ export class InterestService {
       map(res => res as Interest[]),
       catchError(err => throwError(err))
     ).subscribe((interests) => {
-      console.log(interests);
       this._interests.next(interests);
     });
   }
