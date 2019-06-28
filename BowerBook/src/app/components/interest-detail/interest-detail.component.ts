@@ -35,8 +35,8 @@ export class InterestDetailComponent implements OnInit {
 
   getNotFoundObj(): Interest {
     const interest = new Interest();
-    interest.interestName = 'What you looking for fam?';
-    interest.interestId = 'NOT FOUND BITCH"';
+    interest.interestName = `Hold on a sec fam, I'm thinking`;
+    interest.interestId = 'NOT FOUND';
     return interest;
   }
 
