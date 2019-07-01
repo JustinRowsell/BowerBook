@@ -9,7 +9,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatToolbarModule, MatSidenavModule, MatListModule, MatIconModule,
   MatCardModule, MatGridListModule, MatButtonModule, MatChipsModule,
   MatExpansionModule,
-  MatProgressSpinnerModule} from '@angular/material';
+  MatProgressSpinnerModule,
+  MatFormFieldModule,
+  MatSelectModule} from '@angular/material';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { InterestCardComponent } from './components/interest-card/interest-card.component';
 import { InterestDetailComponent } from './components/interest-detail/interest-detail.component';
@@ -20,6 +22,8 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { UserLoginComponent } from './components/auth/user-login/user-login.component';
 import { AuthService } from './services/auth.service';
+import { NewInterestComponent } from './components/new-interest/new-interest.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { AuthService } from './services/auth.service';
     InterestDetailComponent,
     InterestListItemComponent,
     InterestExpansionPanelComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    NewInterestComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,10 @@ import { AuthService } from './services/auth.service';
     MatChipsModule,
     MatExpansionModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule
   ],
   providers: [
     {

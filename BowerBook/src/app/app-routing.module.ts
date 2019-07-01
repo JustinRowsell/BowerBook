@@ -4,6 +4,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { InterestDetailComponent } from './components/interest-detail/interest-detail.component';
 import { UserLoginComponent } from './components/auth/user-login/user-login.component';
+import { NewInterestComponent } from './components/new-interest/new-interest.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'interest',
     component: InterestDetailComponent
+  },
+  {
+    path: 'new',
+    component: NewInterestComponent
   },
   {
     path: '**',
