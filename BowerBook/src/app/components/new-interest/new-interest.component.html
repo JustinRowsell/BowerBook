@@ -1,14 +1,2 @@
-<form #createForm id="create-form">
-  <mat-form-field>
-    <mat-label>Resources</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let resource of resources | async" [value]="resource.resourceId">{{resource.resourceName}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Progress</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let progress of progresses | async" [value]="progress.progressId">{{progress.progressName}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-</form>
+<h1 class="page-header">Log a new interest</h1>
+<app-interest-form *ngIf="newInterest" [interest]="newInterest"></app-interest-form>

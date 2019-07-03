@@ -25,4 +25,10 @@ export class InterestService {
       this._interests.next(interests);
     });
   }
+
+  getNewObj(): Interest {
+    let interest = new Interest();
+    interest.interestId = '-1';
+    return interest;
+  }
 }

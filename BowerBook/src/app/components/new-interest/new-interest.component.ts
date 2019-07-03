@@ -6,6 +6,7 @@ import { Resource } from '../../models/Resource';
 import { Observable } from 'rxjs';
 import { Progress } from '../../models/Progress';
 import { Interest } from '../../models/Interest';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-new-interest',
@@ -13,17 +14,13 @@ import { Interest } from '../../models/Interest';
   styleUrls: ['./new-interest.component.scss']
 })
 export class NewInterestComponent implements OnInit {
-  resources: Observable<Resource[]>;
-  progresses: Observable<Progress[]>;
+  newInterest: Interest;
   constructor(private interestService: InterestService,
               private resourceService: ResourceService,
               private progressService: ProgressService) { }
 
   ngOnInit() {
-    this.progressService.getAll();
-    this.progresses = this.progressService.progresses;
-    this.resourceService.getAll();
-    this.resources = this.resourceService.resources;
+    this.newInterest = this.interestService.getNewObj();
   }
 
 }

@@ -24,7 +24,7 @@ const routes: Routes = [
     component: InterestDetailComponent
   },
   {
-    path: 'new',
+    path: 'new/interest',
     component: NewInterestComponent
   },
   {
