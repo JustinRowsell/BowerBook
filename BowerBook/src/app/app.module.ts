@@ -28,6 +28,7 @@ import { NewInterestComponent } from './components/new-interest/new-interest.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InterestFormComponent } from './components/forms/interest-form/interest-form.component';
 import { NewResourceComponent } from './components/new-resource/new-resource.component';
+import { NewTagComponent } from './components/new-tag/new-tag.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { NewResourceComponent } from './components/new-resource/new-resource.com
     UserLoginComponent,
     NewInterestComponent,
     InterestFormComponent,
-    NewResourceComponent
+    NewResourceComponent,
+    NewTagComponent
   ],
   imports: [
     BrowserModule,

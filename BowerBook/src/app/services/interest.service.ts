@@ -28,7 +28,7 @@ export class InterestService {
 
   createNew(interest: Interest): Observable<string> {
     console.log(interest);
-    return this.http.post<string>(`${environment.coreApi}/api/interests/new`, interest).pipe(
+    return this.http.post(`${environment.coreApi}/api/interests/new`, interest, { responseType: 'text'}).pipe(
       map(res => res),
       tap(res => res ? console.log('Success') : console.log('An error occurred')),
       catchError(err => throwError(err))

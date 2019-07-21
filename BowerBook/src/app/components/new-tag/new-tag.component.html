@@ -1,0 +1,8 @@
+<h1 class="page-header">Add a tag</h1>
+<form #newResForm class="cool-form">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="tagName" name="tagName">
+  </mat-form-field>
+  <button mat-flat-button type="submit" (click)="create()" color="accent">Create</button>
+</form>

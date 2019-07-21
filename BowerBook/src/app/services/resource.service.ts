@@ -24,7 +24,7 @@ export class ResourceService {
   }
 
   createNew(model: Resource): Observable<string> {
-    return this.http.post<string>(`${environment.coreApi}/api/resources/new`, model).pipe(
+    return this.http.post(`${environment.coreApi}/api/resources/new`, model, { responseType: 'text'}).pipe(
       map(res => res),
       catchError(err => throwError(err))
     );

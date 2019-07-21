@@ -6,6 +6,7 @@ import { InterestDetailComponent } from './components/interest-detail/interest-d
 import { UserLoginComponent } from './components/auth/user-login/user-login.component';
 import { NewInterestComponent } from './components/new-interest/new-interest.component';
 import { NewResourceComponent } from './components/new-resource/new-resource.component';
+import { NewTagComponent } from './components/new-tag/new-tag.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'new/resource',
     component: NewResourceComponent
+  },
+  {
+    path: 'new/tag',
+    component: NewTagComponent
   },
   {
     path: '**',
