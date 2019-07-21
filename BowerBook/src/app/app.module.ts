@@ -12,7 +12,8 @@ import { MatToolbarModule, MatSidenavModule, MatListModule, MatIconModule,
   MatProgressSpinnerModule,
   MatFormFieldModule,
   MatSelectModule,
-  MatInputModule} from '@angular/material';
+  MatInputModule,
+  MatAutocompleteModule} from '@angular/material';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { InterestCardComponent } from './components/interest-card/interest-card.component';
 import { InterestDetailComponent } from './components/interest-detail/interest-detail.component';
@@ -26,6 +27,7 @@ import { AuthService } from './services/auth.service';
 import { NewInterestComponent } from './components/new-interest/new-interest.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InterestFormComponent } from './components/forms/interest-form/interest-form.component';
+import { NewResourceComponent } from './components/new-resource/new-resource.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { InterestFormComponent } from './components/forms/interest-form/interest
     InterestExpansionPanelComponent,
     UserLoginComponent,
     NewInterestComponent,
-    InterestFormComponent
+    InterestFormComponent,
+    NewResourceComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,9 @@ import { InterestFormComponent } from './components/forms/interest-form/interest
     MatFormFieldModule,
     MatSelectModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

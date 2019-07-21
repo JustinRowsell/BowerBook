@@ -1,0 +1,13 @@
+<h1 class="page-header">Add a resource</h1>
+<form #newResForm class="cool-form">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="resName" name="resName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Link</mat-label>
+    <input matInput [(ngModel)]="link" name="link">
+  </mat-form-field>
+  <button mat-flat-button type="submit" (click)="create()" color="accent">Create</button>
+</form>
+

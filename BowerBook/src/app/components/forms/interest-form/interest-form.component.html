@@ -1,27 +1,50 @@
-<form id="create-form" [(ngModel)]="interest">
+<form id="create-form">
   <mat-form-field>
     <mat-label>Interest Name</mat-label>
-    <input matInput value="{{interest.interestName}}">
+    <input matInput [(ngModel)]="name" name="name">
   </mat-form-field>
   <mat-form-field>
     <mat-label>Description</mat-label>
-    <input matInput value="{{interest.interestName}}" type="textarea">
+    <input matInput [(ngModel)]="description" name="description">
   </mat-form-field>
   <mat-form-field>
     <mat-label>Category</mat-label>
-    <input matInput value="{{interest.interestName}}">
+    <input matInput [(ngModel)]="category" name="category">
   </mat-form-field>
   <mat-form-field>
     <mat-label>Resources</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let resource of resources | async" [value]="resource.resourceId">{{resource.resourceName}}</mat-option>
+    <mat-select name="selectedResource" [(ngModel)]="selectedResource">
+      <mat-option *ngFor="let resource of resources | async" [value]="resource">{{resource.resourceName}}</mat-option>
     </mat-select>
   </mat-form-field>
+  <button mat-mini-fab aria-label="Add resource" (click)="queueResource()" class="form-fab">
+    <mat-icon>add</mat-icon>
+  </button>
+  <mat-list *ngIf="addResources">
+    <mat-list-item *ngFor="let r of addResources">
+      <mat-icon mat-list-icon (click)="removeResource(r)">delete</mat-icon>
+      <h4 mat-line>{{r.resourceName}}</h4>
+      <mat-select>
+        <mat-option *ngFor="let progress of progresses | async"
+          (click)="setProgressId(r, progress)">
+          {{progress.progressName}}</mat-option>
+      </mat-select>
+    </mat-list-item>
+  </mat-list>
   <mat-form-field>
-    <mat-label>Progress</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let progress of progresses | async" [value]="progress.progressId">{{progress.progressName}}</mat-option>
+    <mat-label>Tag</mat-label>
+    <mat-select name="selectedTag" [(ngModel)]="selectedTag">
+      <mat-option *ngFor="let tag of tags | async" [value]="tag">{{tag.tagName}}</mat-option>
     </mat-select>
   </mat-form-field>
+  <button mat-mini-fab aria-label="Add tag" (click)="queueTag()" class="form-fab">
+    <mat-icon>add</mat-icon>
+  </button>
+  <mat-chip-list *ngIf="addTags" class="some-space">
+    <mat-chip *ngFor="let t of addTags" (removed)="removeTag(t)">
+      {{t.tagName}}
+      <mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-list>
   <button mat-flat-button (click)="save()" color="primary" class="my-btn">Save</button>
 </form>

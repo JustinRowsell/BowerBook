@@ -11,3 +11,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .my-btn {
   max-width: 100px;
 }
+
+.form-fab {
+  width: 40px !important;
+}
+
+.cool-form {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  margin-top: 10px;
+}
+
+.cool-form > * {
+  width: 100%;
+}

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Resource } from '../models/Resource';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 
 @Injectable({
@@ -13,6 +13,7 @@ export class ResourceService {
   public readonly resources: Observable<Resource[]> = this._resources.asObservable();
 
   constructor(private http: HttpClient) { }
+
   getAll(): void {
     this.http.get<Resource[]>(`${environment.coreApi}/api/resources`).pipe(
       map(res => res as Resource[]),
@@ -20,5 +21,12 @@ export class ResourceService {
     ).subscribe((resources) => {
       this._resources.next(resources);
     });
+  }
+
+  createNew(model: Resource): Observable<string> {
+    return this.http.post<string>(`${environment.coreApi}/api/resources/new`, model).pipe(
+      map(res => res),
+      catchError(err => throwError(err))
+    );
   }
 }

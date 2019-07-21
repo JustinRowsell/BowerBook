@@ -5,7 +5,7 @@ import { Tag } from '../models/Tag';
 import { Resource } from '../models/Resource';
 import { Progress } from '../models/Progress';
 import { HttpClient } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -26,8 +26,21 @@ export class InterestService {
     });
   }
 
+  createNew(interest: Interest): Observable<string> {
+    console.log(interest);
+    return this.http.post<string>(`${environment.coreApi}/api/interests/new`, interest).pipe(
+      map(res => res),
+      tap(res => res ? console.log('Success') : console.log('An error occurred')),
+      catchError(err => throwError(err))
+    );
+  }
+
+  update(interest: Interest) {
+    console.log(interest);
+  }
+
   getNewObj(): Interest {
-    let interest = new Interest();
+    const interest = new Interest();
     interest.interestId = '-1';
     return interest;
   }
