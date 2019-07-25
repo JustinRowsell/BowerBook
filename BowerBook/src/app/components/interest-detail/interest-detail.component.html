@@ -1,10 +1,24 @@
 <div *ngIf="interest" class="interest-detail-page">
-  <h1>
-    {{interest.interestName}}
-  </h1>
-  <p>
-    {{interest.description}}
-  </p>
+  <div *ngIf="!editing">
+    <h1>
+      {{interest.interestName}}
+    </h1>
+    <p>
+      {{interest.description}}
+    </p>
+  </div>
+  <div *ngIf="editing">
+    <mat-form-field class="card-field">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" [(ngModel)]="interest.interestName">
+    </mat-form-field>
+    <mat-form-field class="card-field">
+      <mat-label>Description</mat-label>
+      <input matInput type="text" [(ngModel)]="interest.description">
+    </mat-form-field>
+    <button mat-icon-button (click)="update()"><mat-icon>filter_hdr</mat-icon></button>
+  </div>
+  <button mat-icon-button (click)="toggleEditing()"><mat-icon>flare</mat-icon></button>
   <div *ngIf="interest.interestId !== 'NOT FOUND'">
     <mat-divider style="width: 90%"></mat-divider>
     <h2>

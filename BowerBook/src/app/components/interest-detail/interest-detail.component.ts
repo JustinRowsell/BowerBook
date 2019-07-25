@@ -17,6 +17,7 @@ export class InterestDetailComponent implements OnInit {
   interest = new Interest();
   newResourceName: string;
   newResourceLink: string;
+  editing = false;
 
   constructor(@Inject(APP_CONFIG) private config: IAppConfig, private activedRoute: ActivatedRoute,
               private service: InterestService,
@@ -65,5 +66,13 @@ export class InterestDetailComponent implements OnInit {
     ).subscribe(interest => {
       this.interest = interest;
     });
+  }
+
+  async update() {
+    await this.service.update(this.interest);
+  }
+
+  toggleEditing() {
+    this.editing = !this.editing;
   }
 }

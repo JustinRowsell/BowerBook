@@ -35,8 +35,8 @@ export class InterestService {
     );
   }
 
-  update(interest: Interest) {
-    console.log(interest);
+  async update(interest: Interest) {
+    await this.http.put(`${environment.coreApi}/api/interests/update`, interest, { responseType: 'text' }).toPromise();
   }
 
   getNewObj(): Interest {
