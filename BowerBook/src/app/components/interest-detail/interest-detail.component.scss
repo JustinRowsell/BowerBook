@@ -3,5 +3,16 @@
 }
 
 .resource-card {
-  max-width: 30%;
+  width: 30%;
+  margin-right: 2px;
 }
+
+.card-container {
+  display: flex;
+  align-items: stretch;
+}
+
+.card-field {
+  width: 100%;
+}
+

@@ -29,4 +29,20 @@ export class ResourceService {
       catchError(err => throwError(err))
     );
   }
+
+  async addNewToInterest(interestId: string, newResourceName: string, newResourceLink: string) {
+    const newResourceId = await this.http.post(`${environment.coreApi}/api/resources/add`,
+                                              { id: interestId,
+                                                name: newResourceName,
+                                                link: newResourceLink },
+                                                { responseType: 'text'}).pipe(
+                                                  catchError((err) => {
+                                                    console.error(err);
+                                                    return null;
+                                                  })
+                                                ).toPromise();
+    if (newResourceId) {
+      this.getAll();
+    }
+  }
 }
