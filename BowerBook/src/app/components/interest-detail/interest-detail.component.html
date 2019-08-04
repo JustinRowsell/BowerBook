@@ -24,7 +24,7 @@
     <h2>
       Resources
     </h2>
-    <div class="card-container">
+    <div class="card-container" *ngIf="interest.resources">
       <mat-card *ngFor="let resource of interest.resources" class="resource-card">
         <mat-card-header>
           <mat-card-title>{{resource.resourceName}}</mat-card-title>

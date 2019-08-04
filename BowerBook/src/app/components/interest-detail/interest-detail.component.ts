@@ -41,6 +41,7 @@ export class InterestDetailComponent implements OnInit {
     ).subscribe(interest => {
       this.interest = interest;
     });
+    this.progressService.getAll();
   }
 
   getNotFoundObj(): Interest {
