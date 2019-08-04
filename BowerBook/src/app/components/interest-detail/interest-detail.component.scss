@@ -4,9 +4,14 @@
 
 .resource-card {
   width: 30%;
-  min-width: 320px;
+  min-width: 300px;
   margin-right: 2px;
   margin-bottom: 10px;
+}
+
+.resource-card .mat-card-title {
+  overflow: wrap;
+  word-wrap: wrap;
 }
 
 .card-container {

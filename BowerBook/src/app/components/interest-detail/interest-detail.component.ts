@@ -6,6 +6,9 @@ import { Interest } from '../../models/Interest';
 import { APP_CONFIG, IAppConfig } from '../../app.config';
 import { map, find } from 'rxjs/operators';
 import { ResourceService } from '../../services/resource.service';
+import { Resource } from '../../models/Resource';
+import { Progress } from '../../models/Progress';
+import { ProgressService } from '../../services/progress.service';
 
 @Component({
   selector: 'app-interest-detail',
@@ -21,7 +24,8 @@ export class InterestDetailComponent implements OnInit {
 
   constructor(@Inject(APP_CONFIG) private config: IAppConfig, private activedRoute: ActivatedRoute,
               private service: InterestService,
-              private resourceService: ResourceService) { }
+              private resourceService: ResourceService,
+              private progressService: ProgressService) { }
 
   ngOnInit() {
     this.idParam = this.activedRoute.snapshot.queryParamMap.get(this.config.idParam);
@@ -74,5 +78,17 @@ export class InterestDetailComponent implements OnInit {
 
   toggleEditing() {
     this.editing = !this.editing;
+  }
+
+  async advanceProgress(res: Resource, progress: Progress): Promise<void> {
+    const seq = progress.sequence;
+    const newP = await this.progressService.getNextProgress(seq);
+    res.progress = newP;
+    await this.updateResource(res);
+  }
+
+  async updateResource(resource: Resource): Promise<void> {
+    await this.resourceService.updateRes(resource);
+    location.reload();
   }
 }

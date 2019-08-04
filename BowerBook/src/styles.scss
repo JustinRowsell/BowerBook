@@ -3,6 +3,11 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+h1, h2, h3, h4, h5, h6 {
+  overflow: wrap;
+  word-wrap: wrap;
+}
+
 .page-header {
   margin-left: 15px;
   margin-top: 10px;

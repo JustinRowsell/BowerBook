@@ -45,4 +45,16 @@ export class ResourceService {
       this.getAll();
     }
   }
+
+  updateRes(resource: Resource): Promise<string> {
+    return this.http.put(`${environment.coreApi}/api/resources/update`,
+                          resource,
+                          { responseType: 'text' })
+                          .pipe(
+                            catchError((err) => {
+                              console.error(err);
+                              return '';
+                            }))
+                          .toPromise();
+  }
 }
