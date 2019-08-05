@@ -90,6 +90,9 @@ export class InterestDetailComponent implements OnInit {
 
   async updateResource(resource: Resource): Promise<void> {
     await this.resourceService.updateRes(resource);
-    location.reload();
+  }
+
+  openLink(link: string): void {
+    window.open(link, '_blank');
   }
 }
