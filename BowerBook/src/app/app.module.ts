@@ -22,7 +22,6 @@ import { InterestExpansionPanelComponent } from './components/interest-expansion
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
-import { UserLoginComponent } from './components/auth/user-login/user-login.component';
 import { AuthService } from './services/auth.service';
 import { NewInterestComponent } from './components/new-interest/new-interest.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -39,7 +38,6 @@ import { NewTagComponent } from './components/new-tag/new-tag.component';
     InterestDetailComponent,
     InterestListItemComponent,
     InterestExpansionPanelComponent,
-    UserLoginComponent,
     NewInterestComponent,
     InterestFormComponent,
     NewResourceComponent,
