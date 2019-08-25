@@ -3,13 +3,8 @@
     <mat-panel-title>
       {{interest.interestName}}
     </mat-panel-title>
-    <mat-panel-description>
-      {{interest.description}}
-    </mat-panel-description>
-    <mat-chip-list class="chip-list">
-      <mat-chip color="primary" *ngFor="let tag of interest.tags">{{tag.tagName}}</mat-chip>
-    </mat-chip-list>
   </mat-expansion-panel-header>
+  <p>{{interest.description}}</p>
   <mat-list>
     <mat-list-item *ngFor="let r of interest.resources">
       <mat-icon mat-list-icon>toys</mat-icon>
